@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "__availability": "cpp",
+        "atomic": "cpp",
+        "cstdlib": "cpp",
+        "ctime": "cpp",
+        "__functional_03": "cpp",
+        "functional": "cpp",
+        "cmath": "cpp",
+        "new": "cpp",
+        "iostream": "cpp"
+    }
+}

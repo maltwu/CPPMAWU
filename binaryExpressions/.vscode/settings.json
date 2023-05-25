@@ -1,0 +1,20 @@
+{
+    "files.associations": {
+        "*.tpp": "cpp",
+        "array": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "vector": "cpp",
+        "iterator": "cpp",
+        "iosfwd": "cpp",
+        "__hash_table": "cpp",
+        "__split_buffer": "cpp",
+        "bitset": "cpp",
+        "hash_map": "cpp",
+        "initializer_list": "cpp",
+        "unordered_map": "cpp",
+        "utility": "cpp",
+        "iostream": "cpp"
+    },
+    "terminal.integrated.shell.windows": "cmd.exe"
+}

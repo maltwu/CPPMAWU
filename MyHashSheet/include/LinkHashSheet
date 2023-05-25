@@ -1,0 +1,15 @@
+#include "AbstractHashSheet"
+
+class LinkHashSheet : public AbstractHashSheet
+{
+private:
+    /* data */
+public:
+    int init;
+public:
+    LinkHashSheet(/* args */);
+    ~LinkHashSheet();
+    virtual void putValueIn(long value);
+    virtual void FindByValue(long value);
+    virtual void deleteByValue(long value);
+};

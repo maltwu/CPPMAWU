@@ -1,0 +1,17 @@
+struct sheetNode{
+    long value;
+    void* pAbstractHashSheet;
+};
+
+class AbstractHashSheet
+{
+protected:
+    /* data */
+   sheetNode* sheets[16]; 
+public:
+    virtual void putValueIn(long value){};
+    virtual void FindByValue(long value){};
+    virtual void deleteByValue(long value){};    
+};
+
+

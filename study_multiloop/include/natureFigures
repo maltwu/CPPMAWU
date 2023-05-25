@@ -1,0 +1,6 @@
+
+void printNatureFiguresSumEqM();
+
+void printNatureFiguresSumEqMOptimized1st();
+
+void printNatureFiguresSumEqMOptimized2nd();
