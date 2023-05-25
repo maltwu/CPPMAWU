@@ -1,3 +1,6 @@
+# Mac OS info file
+.DS_Store
+
 # Prerequisites
 *.d
 
