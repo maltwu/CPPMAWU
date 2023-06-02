@@ -1,0 +1,86 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+struct Gangs
+{
+	int root;
+	int gang; // 0 1 两个帮派
+};
+int getGand(int x, Gangs *group)
+{
+	stack<int> well;
+	while (group[x].root != x)
+	{
+		well.push(x); //记录搜索路径节点标号
+		x = group[x].root;
+	}
+	int parent = x;
+	while (!well.empty())
+	{
+		//回溯路径
+		int pos = well.top();
+		group[pos].root = x;
+		group[pos].gang = (group[pos].gang + group[parent].gang) % 2;
+		parent = pos;
+		well.pop();
+	}
+	return x;
+}
+void unionGang(int x, int y, Gangs *group)
+{
+	int xroot = getGand(x, group);
+	int yroot = getGand(y, group);
+	if (xroot != yroot)
+	{
+		group[xroot].root = yroot;
+		group[xroot].gang = (group[y].gang - group[x].gang + 1) % 2;
+	}
+	return;
+}
+int main(int argc, char *argv[])
+{
+	int T, N, M;
+	string msg;
+	cin >> T;
+	while (T-- > 0)
+	{
+		cin >> N >> M;
+		Gangs group[N + 1];
+
+		auto judge = [&](int x, int y) -> void
+		{
+			int xroot = getGand(x, group);
+			int yroot = getGand(y, group);
+			if (xroot != yroot)
+				//在不相关的情报集内
+				msg.append("Not sure yet\n");
+			else
+				group[x].gang == group[y].gang ? msg.append("In the same gangs\n") : msg.append("In different gangs\n");
+		};
+		for (int i = 1; i <= N; ++i)
+		{
+			group[i].root = i;
+			group[i].gang = 0; //默认底都是0，另只有在一个集合号下才可以比较
+		}
+		while (M-- > 0)
+		{
+			char cmd;
+			int a, b;
+			cin >> cmd >> a >> b;
+			switch (cmd)
+			{
+			case 'D':
+				unionGang(a, b, group);
+				break;
+			case 'A':
+				judge(a, b);
+				break;
+			}
+		}
+	}
+	if (!msg.empty())
+	{
+		cout << msg;
+		msg.clear();
+	}
+}
